@@ -1,16 +1,31 @@
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-/**
- * main - prints to the standard error without using
- * @void: no parameter:
- * Return: 1
-      */
 int main(void)
-
 {
-write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
+	int c;
+	int d;
+	int e = 0;
 
-		return (1);
-}
-
+	while (e < 10)
+	{
+		d = 0;
+		while (d < 10)
+		{
+			c = 0;
+			while (c < 10)
+			{
+				if (c != d && d != e && e < d && d < c)
+				{
+					putchar('0' + e);
+					putchar('0' + d);
+					putchar('0' + c);
+					if (c + d + e != 9 + 8 + 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+				c++;
+			}
+			d++;
+		}
+		e++;
+	}
