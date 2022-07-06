@@ -1,6 +1,4 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 /**
   * _putchar - writes the character c to stdout
   * @c: The character to print
@@ -8,17 +6,17 @@
   * On error, -1 is returned, and errno is set appropriately.
   */
 
-int _putchar(char c)
-{
-
-return (write(1, &c, 1));
-}
-
 int main(void)
 {
-char d = 'a';
-int g = _putchar(d);
-
+_putchar('_');
+_putchar('p');
+_putchar('u');
+_putchar('t');
+_putchar('c');
+_putchar('h');
+_putchar('a');
+_putchar('r');
+_putchar('\n');
 
 return (0);
 }
