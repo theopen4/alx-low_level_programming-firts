@@ -26,5 +26,5 @@ break;
 count++;
 }
 
-return (s);
+return (s)
 }
