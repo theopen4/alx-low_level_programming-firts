@@ -1,3 +1,4 @@
+The4 Theopen4, [20/07/2022 23:49]
 #include "main.h"
 
 
@@ -13,15 +14,15 @@ int is_palindrome(char *s);
  */
 int find_strlen(char *s)
 {
-  int len = 0;
+ int len = 0;
 
-  if (*(s + len))
-  {
-    len++;
-    len += find_strlen(s + len);
-  }
+ if (*(s + len))
+ {
+  len++;
+  len += find_strlen(s + len);
+ }
 
-  return (len);
+ return (len);
 }
 
 /**
@@ -35,13 +36,13 @@ int find_strlen(char *s)
  */
 int check_palindrome(char *s, int len, int index)
 {
-  if (s[index] == s[len / 2])
-    return (1);
+ if (s[index] == s[len / 2])
+  return (1);
 
-  if (s[index] == s[len - index - 1])
-    return (check_palindrome(s, len, index + 1));
+ if (s[index] == s[len - index - 1])
+  return (check_palindrome(s, len, index + 1));
 
-  return (0);
+ return (0);
 }
 
 /**
@@ -53,11 +54,11 @@ int check_palindrome(char *s, int len, int index)
  */
 int is_palindrome(char *s)
 {
-  int index = 0;
-  int len = find_strlen(s);
+ int index = 0;
+ int len = find_strlen(s);
 
-  if (!(*s))
-    return (1);
+ if (!(*s))
+  return (1);
 
-  return (check_palindrome(s, len, index));
+ return (check_palindrome(s, len, index));
 }
