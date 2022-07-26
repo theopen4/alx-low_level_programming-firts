@@ -1,38 +1,43 @@
 #include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * print_tab - Prints an array of string
- * @tab: The array to print
- *
- * Return: nothing
+ * strtow - Function that splits a string into words
+ * @str: String to be worked
+ * Return: Pointer to an array of strings
  */
-void print_tab(char **tab)
+char **strtow(char *str)
 {
-	int i;
+	int i, j = 0, k, m;
+	char **a;
 
-	for (i = 0; tab[i] != NULL; ++i)
+	if (str[0] >= 33 && str[0] <= 126)
+		j++;
+	for (i = 0; str[i]; i++)
+		if (str[i] == ' ' && str[i + 1] >= 33 && str[i + 1] <= 126)
+			j++;
+	if (str == NULL || j == 0)
+		return (NULL);
+	a = malloc(sizeof(char *) * (j + 1));
+	if (a == NULL)
+		return (NULL);
+	for (i = 0, j = 0; str[i] != '\0'; i++)
 	{
-		printf("%s\n", tab[i]);
-	}
-}
+		if (str[i] >= 33 && str[i] <= 126)
+		{
+			for (m = i; str[m] != '\0' && str[m] != ' '; m++)
+				;
+			a[j] = malloc(sizeof(char) * (m - i + 1));
+			if (a[j] == NULL)
+				return (NULL);
+			for (m = i, k = 0; str[m] != '\0' && str[m] != ' '; m++, k++)
+				a[j][k] = str[m];
+			a[j][k] = '\0';
 
-/**
- * main - check the code for Holberton School students.
- *
- * Return: 1 if an error occurred, 0 otherwise
- */
-int main(void)
-{
-	char **tab;
-
-	tab = strtow("      Holberton School         #cisfun      ");
-	if (tab == NULL)
-	{
-		printf("Failed\n");
-		return (1);
+			i = m - 1, j++;
+		}
 	}
-	print_tab(tab);
-	return (0);
+	a[j] = NULL;
+
+	return (a);
 }
